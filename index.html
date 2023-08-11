@@ -245,10 +245,10 @@
 						<div class="content">
 							<div class="inner">
 								<h2>DSAV</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(learning app to learn Data Structures & Algorithms)</i></p>
+								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(learning app for Data Structures & Algorithms with real time, step by step animations and code explanations)</i></p>
 								<h3>JUL 2023 - PRESENT</h3>
 								<h4>Founder & Project Director</h4>
-								<p>Technologies: React.js (Framework), Figma (Frontend), Github + Trello (DevOps)</p>
+								<p>Technologies: React.js (Framework), Figma (UI/UX), Github + Trello (DevOps)</p>
 								<ul>
 									<li>
 										Led 15 SWE to develop a React visualisation tool to learn Data Structures & Algorithms, using AGILE methods.
@@ -314,48 +314,107 @@
 
 				<!-- Three : contact info-->
 					<section id="contact" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Contact Me</h2>
-								<section><br>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>415 South Street<br />
-											Waltham, MA 02453</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="mailto:nguyenv@brandeis.edu">nguyenv@brandeis.edu</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(774) 707-1015</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a target="_blank" href="https://github.com/nguyenv119" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a target="_blank" href="https://www.linkedin.com/in/long-nguyen119/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-									<br>
-								</section>
+						<div class="inner" style="padding-bottom: 0px;">
+								<div id="contact">
+									<div class="container">
+										<div class="row">
+											<div class="contact-left">
+												<h1 class="sub-title">Contact Me</h1>
+												<ul class="contact">
+													<li>
+														<h3>Address</h3>
+														<span>415 South Street<br />
+														Waltham, MA 02453</span>
+													</li>
+													<li>
+														<h3>Email</h3>
+														<a href="mailto:nguyenv@brandeis.edu">nguyenv@brandeis.edu</a>
+													</li>
+													<li>
+														<h3>Phone</h3>
+														<span>(774) 707-1015</span>
+													</li>
+													<li>
+														<h3>Social</h3>
+														<ul class="icons">
+															<li><a target="_blank" href="https://github.com/nguyenv119" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+															<li><a target="_blank" href="https://www.linkedin.com/in/long-nguyen119/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+														</ul>
+													</li>
+												</ul>
+												<br>
+											</div>
+											<div class="contact-right" style="margin-top: 7.7%;">
+												<form name="submit-to-google-sheet">
+													<input type="text" name="Name" placeholder="Your Name" required>
+													<input type="email" name="Email" placeholder="Your Emai" required>
+													<textarea name="Message" style="resize: none;"rows="6" placeholder="Your Message"></textarea>
+													<button type="submit" class="btn btn2">Submit</button> 
+												</form>
+												<span id="msg"></span>
+											</div>
+										</div>
+									</div>
+								</div>
 						</div>
+					<!-- Footer -->
+						<footer id="footer" class="wrapper style1-alt">
+							<div class="inner" style="padding-bottom: 0">
+								<ul class="menu">
+									<li>&copy; Long Nguyen All Rights Reserved.</li>
+								</ul>
+							</div>
+						</footer>
 					</section>
-
+					
 			</div>
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Long Nguyen All Rights Reserved.</li>
-					</ul>
-				</div>
-			</footer>
-
 		<!-- Scripts -->
+			<!-- Contact Scripts -->
+				<script>
+					var tablinks = document.getElementsByClassName("tab-links");
+					var tabcontents = document.getElementsByClassName("tab-contents");
+					function opentab(tabname){
+						for(tablink of tablinks){
+							tablink.classList.remove("active-link");
+						}
+						for(tabcontent of tabcontents){
+							tabcontent.classList.remove("active-tab");
+						}
+						event.currentTarget.classList.add("active-link");
+						document.getElementById(tabname).classList.add("active-tab");
+					}
+				</script>
+				
+				<script>
+					var sidemenu = document.getElementById("sidemenu");
+					function openmenu(){
+						sidemenu.style.right = "0";
+					}
+					function closemenu(){
+						sidemenu.style.right = "-200px";
+					}
+				</script>
+				
+				<script>
+					const scriptURL = 'https://script.google.com/macros/s/AKfycbyyd3vavFIBHqkoey3zaTdK2WmG6t_fz6lQ9lcu8mMYGFArObOzHz-CX6m8jkGeAAmDkg/exec'
+					const form = document.forms['submit-to-google-sheet']
+					const msg = document.getElementById("msg")
+					form.addEventListener('submit', e => {
+					e.preventDefault()
+					fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+						.then(response => {
+							msg.innerHTML = "Message Sent Successfully"
+							setTimeout(function(){
+								msg.innerHTML = ""
+							},5000)
+				
+							form.reset()
+						})
+						.catch(error => console.error('Error!', error.message))
+					})
+				</script>
+
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
