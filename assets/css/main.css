@@ -11,12 +11,12 @@
 
 #about,
 #skills {
-	background: #101010;
+	background: #000000;
 }
 
 :root {
 	/* sidebar */
-	--sidebar-background-color: #101010;
+	--sidebar-background-color: #0D0D0D;
 	--beam-color-to: #fff;
 	--sidebar-font-color: rgba(0, 0, 0, 85);
 
@@ -110,7 +110,7 @@ input, select, textarea {
     height: 160px; /* Make sure width and height are the same to keep it a circle */
     border-radius: 50%;  /* This makes the image circular */
     object-fit: cover;   /* This ensures that the image covers the area without being stretched or squished */
-    margin: -55% 0 20% 17%;   /* Centers the image horizontally and adds some spacing */
+    margin: -40% 0 20% 17%;   /* Centers the image horizontally and adds some spacing */
     display: block;      /* Makes margin auto work to center the image */
 	border: 2px solid rgb(87, 87, 87);
 }
