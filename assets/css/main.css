@@ -116,6 +116,12 @@ input, select, textarea {
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 }
 
+/* @media only screen and (max-width:100%){
+    .profile-picture img {
+		display: none;
+	}
+} */
+
 /* Contact section */
 .contact-left{
     flex-basis: 35%;

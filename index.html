@@ -417,6 +417,37 @@
 					})
 				</script>
 
+			<!-- Script for profile image -->
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+					var maxWidth = window.screen.width * 0.847;
+					var style = document.createElement('style');
+					style.innerHTML = `
+						@media only screen and (max-width: ${maxWidth}px) {
+							.profile-picture img {
+								display: none;
+							}
+						}
+					`;
+					document.head.appendChild(style);
+				});
+				</script>
+			<!-- Script for download btns -->
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+					var maxWidth = window.screen.width * 0.376;
+					var style = document.createElement('style');
+					style.innerHTML = `
+						@media only screen and (max-width: ${maxWidth}px) {
+							.fa-download {
+								font-size: 1.65vw;
+							}
+						}
+					`;
+					document.head.appendChild(style);
+				});
+				</script>
+
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
