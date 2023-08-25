@@ -1,0 +1,20 @@
+.typewriter h3 {
+    display: inline-block; /* To give the element a width based on its content */
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: pre; /* Preserve whitespace as in HTML */
+    letter-spacing: .05em;
+    animation:  
+      typing 1.5s steps(20, end),
+      blink-caret 2s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 12% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
