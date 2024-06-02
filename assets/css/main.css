@@ -7,8 +7,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Variable declarations */
+.rectangle {
+	border-top: solid 1px rgba(255, 255, 255, 0.15); 
+	margin-right: 0.1%;
+}
 
+/* Variable declarations */
 #about,
 #skills {
 	background: #000000;
@@ -106,10 +110,10 @@ input, select, textarea {
 }
 
 .profile-picture img {
-    width: 170px;  /* You can adjust this as per your preference */
-    height: 170px; /* Make sure width and height are the same to keep it a circle */
+    width: 250px;  /* You can adjust this as per your preference */
+    height: 250px; /* Make sure width and height are the same to keep it a circle */
     border-radius:50%;  /* This makes the image circular */
-    object-fit: cover;   /* This ensures that the image covers the area without being stretched or squished */
+    object-fit: cover;
     margin: -65% 0 0% 16%; 
     display: block;      /* Makes margin auto work to center the image */
 	border: 2px solid black;
