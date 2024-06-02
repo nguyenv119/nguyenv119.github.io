@@ -113,8 +113,8 @@ input, select, textarea {
     width: 250px;  /* You can adjust this as per your preference */
     height: 250px; /* Make sure width and height are the same to keep it a circle */
     border-radius:50%;  /* This makes the image circular */
-    object-fit: cover;
-    margin: -65% 0 0% 16%; 
+    object-fit:cover;
+    margin: -35% 0 0% 16%; 
     display: block;      /* Makes margin auto work to center the image */
 	border: 2px solid black;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
