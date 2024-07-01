@@ -8,7 +8,7 @@
 */
 
 .rectangle {
-	border-top: solid 1px rgba(255, 255, 255, 0.15); 
+	/* border-top: solid 1px rgba(255, 255, 255, 0.15);  */
 	margin-right: 0.1%;
 }
 
@@ -3177,7 +3177,7 @@ nav .fa-solid{
 /* backgrounds of each section */
 
 		.wrapper.alt {
-			background-color: black;
+			background-color: rgb(47, 47, 47);
 		}
 
 		.wrapper.style1 {
