@@ -27,7 +27,7 @@
 	--top-bar-color: white;
 
 /* Main area */
-	--header-color: #fff;
+	--header-color: #d6d6d6;
 	/* --plain-text: rgba(255, 255, 255, 0.55) */
 	--plain-text: rgba(255, 255, 255, .55);
 	--horizontal-line: rgba(255, 255, 255, 0.15);
@@ -35,7 +35,7 @@
 /* Specialized */
 --icon-color: #211414;
 --box-border-color: ;
---button-text-color: #fff;
+--button-text-color: #d6d6d6;
 --button-outline-hover-color: rgba(255, 255, 255, .55);
 --image-fade-in-color: rgba(0, 0, 0, 1);
 --footer-text-color: rgba(255, 255, 255, 0.15);
