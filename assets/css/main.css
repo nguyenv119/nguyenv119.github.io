@@ -110,21 +110,15 @@ input, select, textarea {
 }
 
 .profile-picture img {
-    width: 250px;  /* You can adjust this as per your preference */
-    height: 250px; /* Make sure width and height are the same to keep it a circle */
+    width: 210px;  /* You can adjust this as per your preference */
+    height: 210px; /* Make sure width and height are the same to keep it a circle */
     border-radius:50%;  /* This makes the image circular */
     object-fit:cover;
     margin: -35% 0 0% 16%; 
-    display: block;      /* Makes margin auto work to center the image */
+    /* display: block; */
 	border: 2px solid black;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 }
-
-/* @media only screen and (max-width:100%){
-    .profile-picture img {
-		display: none;
-	}
-} */
 
 /* Contact section */
 .contact-left{
