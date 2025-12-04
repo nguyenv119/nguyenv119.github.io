@@ -1,576 +1,161 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Long Nguyen</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/typewriter.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <meta charset="UTF-8" />
+  <title>Welcome!</title>
+  <style>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li class="profile-picture">
-								<img src="./images/profile1.jpeg" alt="Profile Picture">
-							</li>
-							<li><a href="#welcome" style="background-color:transparent">Welcome</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#skills">Skills</a></li>
-							<li><a href="#work">Work Experience</a></li>
-							<li><a href="#projects">Clubs / Projects</a></li>
-							<li><a href="#contact">Contact Me</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+    /* -------- Global Reset -------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Intro -->
-					<section id="welcome" class="wrapper style1 fullscreen fade-up">
-						<div class="inner" style="margin: 8% 0 0 0;">
-							<h1>Long Nguyen</h1>
-							<!-- <p style="font-size: 1.25em;">Software Engineering &nbsp / &nbspData Science&nbsp / &nbspProduct Management</p> -->
-							<p style="font-size: 1.25em;"><i>"talent may take you far, but hard work will bring you anywhere..."</i></p>
-							<ul class="actions">
-								<li>
-									<a target="_blank" href="https://drive.google.com/file/d/1yQY_Btvgmi4FP9R3lyDYeAcAPLRgq0rF/view?usp=sharing" class="button icon solid fa-download" >Resume</a>
-								</li>
-							</ul>
-							<div class="typewriter">
-								<h3 style="margin: 5% 0 0 0">Scroll Down...</h3>
-							</div>
-						</div>
-					</section>
+    html, body {
+      height: 100%;
+      background: #0e0e0e;
+      color: #d4d4d4;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      position: relative;
+    }
 
-					<!-- About -->
-					<section id="about" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Me in a Nutshell</h2>
-							<p>
-								Hey, nice to meet you! My name is Long — like the adjective — and I thrive in and seek the challenge of 
-								surpassing any limitations around me: doubters, tedious exams, unfair situations. Whether it's professionally, academically, or personally, 
-								I constantly look for opportunities to learn, innovate, and create work that can make a positive betterment in the world <i>(corny, I know)</i>. 
-								Lately, I've been learning & sharpening my skills in ML and am particularly interested in evolutionary computation. I'm also 
-								a huge Dallas Mavericks fan!! Don't hesitate to reach out, I'd love to talk!<br><br>
+    /* -------- Layout Container -------- */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-								- if you'd like, we could also do so in Vietnamese, Japanese, or Mandarin :)
-							</p>
-							<div class="features">
-								<section>
-									<span class="icon solid major fa-solid fa-graduation-cap"></span>
-									<h3>Education</h3>
-									<p>
-										Brandeis University</br>
-										Expecting May 2026<br>
-										B.S. in Computer Science<br>
-										B.S. in Applied Mathematics<br>
-										GPA: 3.78<br>		
-									<h3>Achievements</h3>
-										<strong style="font-weight: 300"><a href="https://www.linkedin.com/posts/nguyenv119_mindset-perseverance-careerdevelopment-activity-7198406850646581248-UfqW?utm_source=share&utm_medium=member_desktop">Honeywell AI/ML Intern Summer 2024</a></strong><br>
-										Davis UWC Scholar<br> 
-										DeisHack Hidden Gem (2024)<br> 
-										SASEHack Favorite Hack Award (2023)<br>
-										Deans List (Spring 2023)<br>
-										Math Olympiad Captain (2nd Place)<br>
-									</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-solid fa-chalkboard-teacher"></span>
-									<h3>Relevant Courses</h3>
-									<p>
-										<strong style="font-weight: 500">CS</strong>
-										(Software Engineering, Data Structures, Algorithms, Python, OOP, Operating Systems, Web Development)<br><br>
-										<strong style="font-weight: 500">ML</strong>
-										(ML with Big Data, Statistical ML, Fundamentals of AI, Deep Learning)<br><br>
-										<strong style="font-weight: 500">Math</strong>
-										(Linear Algebra, Advanced Calculus & Fourier Analysis, Statistics, Probability, Proof Techniques)<br><br>
-										<strong style="font-weight: 500">Favorite Course: </strong> Effective Communication
-									</p>
-								</section>
-							</div>
-					</section>
+    /* -------- Hero Image -------- */
+    .page-cover-image {
+      width: 100vw;
+      height: 27.5vh;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+    }
 
-					<section id="skills" class="wrapper style3 fade-up" style="margin-top: -5%; padding-bottom: 3%;">
-						<div class="inner">
-							<h2>Skills</h2>
-							<div class="features">
-								<section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Programming Languages</h3>
-									<strong style="font-weight: 500; color: #d6d6d6">Multithreading & Multiprocessing</strong> 
-									<ul>
-										<li>Python </li>
-										<li>Java </li>
-										<li>JavaScript / Typescript </li>
-										<li>C# </li>
-									</ul>
-								</section>
-								<section>
-									<span class="icon solid major fa-solid fa-book"></span>
-									<h3>Full Stack</h3>
-									<p>
-										<strong style="font-weight: 500; color: #d6d6d6">Frontend</strong> (ReactJS, Flutter, React-Native, Svelte, HTML, CSS, Bootstrap)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Backend</strong> (Firebase, NodeJS, ExpressJS, AWS Lambda, EC2, IAM, Cloudfront, Cognito)<br>
-									</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-solid fa-database"></span>
-									<h3>Databases</h3>
-									<p>
-										<strong style="font-weight: 500; color: #d6d6d6">SQL</strong> (PostgreSQL, SQLite, MySQL)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">NoSQL</strong> (MongoDB, Google Firebase)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Cloud Storage</strong> (AWS S3, AWS DynamoDB, CosmosDB, Google Firestore, Aurora AWS)
-									</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-solid fa-microscope"></span>
-									<h3>Machine Learning</h3>
-									<p>
-										<strong style="font-weight: 500; color: #d6d6d6">Data</strong> (NumPy, Pandas, Matplotlib, Plotly)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">ML</strong> (Scikit-learn, PyTorch, TensorFlow, CUDA, Albumentations)<br>
-									</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>DevOps</h3>
-									<p>
-										<strong style="font-weight: 500; color: #d6d6d6">Infrastructure</strong> (Terraform, Pulumi, Docker, Kubernetes)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Cloud Services</strong> (AWS, Google Firebase, Microsoft Azure, GitHub, GitLab)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Developer Tools</strong> Shell Scripting, Unit/Integration Testing, Design Patterns (Creational, Behavioral, Structural)
-									</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-solid fa-chart-line"></span>
-									<h3>PM Tools</h3>
-									<p>
-										<strong style="font-weight: 500; color: #d6d6d6">Design</strong> (Figma, Canva)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Project Management</strong> (Trello, Jira, Notion)<br>
-										<strong style="font-weight: 500; color: #d6d6d6">Methodologies</strong> (Agile, Scrum, Waterfall)<br>
-									</p>
-								</section>
-							</div>
-						</div>
-					</section>
+    header {
+      text-align: left;
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+    }
 
-				<!-- Work Experience -->
-				<section id="work" class="wrapper style2 spotlights" style="background-color: #090909;">
-					<section class="rectangle">
-						<a href="https://nrpond.com/" target="_blank" class="image">
-							<img src="images/npcm.png" alt="NPCM Logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>North Pond Capital Management</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(Quant algorithms meticulously focused on high liquidity)</i></p>
-								<h3>MAY 2024 - AUG 2024</h3>
-								<h4>Software Engineer Intern and Researcher</h4>
-								<ul>
-									<li>
-										Spearheaded the development of several genetic and <strong style="font-weight: 400; color: #d6d6d6">differential evolutionary algorithms</strong> to achieve a <strong style="font-weight: 400; color: #d6d6d6">Sharpe ratio of > 3</strong> across 200+ equity, commodity futures, & index instances on global markets, enhancing portfolio performance.
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="https://tutatet.com/" target="_blank" class="image">
-							<img src="images/tut.png" alt="Tutatet Logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>Tutatet</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(K-12 tutoring platform for students to teach one another)</i></p>
-								<h3>JAN 2024 - JUN 2024</h3>
-								<h4>Software Engineer Intern</h4>
-								<ul>
-									<li>
-										Designed video-chatting systems for <strong style="font-weight: 400; color: #d6d6d6">50,000</strong> concurrent users with <strong style="font-weight: 400; color: #d6d6d6">WebRTC</strong> using <strong style="font-weight: 400; color: #d6d6d6">AWS</strong> Cognito, APIGW, & Lambda and engineered personalized real-time content detection and generation for online teaching sessions with robust <strong style="font-weight: 400; color: #d6d6d6">RNN & CNN</strong> models.
-									</li>
-									<li>
-										Increased user retention by <strong style="font-weight: 400; color: #d6d6d6">200%</strong> by mentoring <strong style="font-weight: 400; color: #d6d6d6">10 SWE</strong> to reconstruct <strong style="font-weight: 400; color: #d6d6d6">100%</strong> of the TS frontend, AWS backend & database design, and migrating <strong style="font-weight: 400; color: #d6d6d6">100%</strong> of the cloud infrastructure from <strong style="font-weight: 400; color: #d6d6d6">Terraform</strong> to <strong style="font-weight: 400; color: #d6d6d6">Pulumi TypeScript & C#</strong>.
-									</li>
-									<li>
-										Placed <strong style="font-weight: 400; color: #d6d6d6">1st</strong> at the Einstein Hackathon, <strong style="font-weight: 400; color: #d6d6d6">2nd</strong> at Innovating for Resilience, and received an invitation to present at the <strong style="font-weight: 400; color: #d6d6d6"><a href="https://www.asugsvsummit.com/">ASU + GSV Summit</a></strong>. Coordinated weekly consultations with the CEO & CTO and tech-stack education (<strong style="font-weight: 400; color: #d6d6d6">Frontend, Cloud, DevOps</strong>).
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="https://www.brandeis.edu/" target="_blank" class="image">
-							<img src="images/deis.png" alt="Brandeis Logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>Java Teaching Assistant</h2>
-								<h3>JAN 2024 - MAY 2024</h3>
-								<h4>Undergraduate Teaching Assistant</h4>
-								<ul>
-									<li>
-										Revamped existing 2 course structure on <strong style="font-weight: 400; color: #d6d6d6">OOP, Data Structures & Algorithms</strong>, and design patterns with a <strong style="font-weight: 400; color: #d6d6d6">ReactJS</strong> visualization tool <i>(see projects below)</i>, graded <strong style="font-weight: 400; color: #d6d6d6">> 400</strong> exams and assignments, and lectured in bi-weekly recitation sessions for <strong style="font-weight: 400; color: #d6d6d6">> 150</strong> students.
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="https://www.inbe.io/" target="_blank" class="image">
-							<img src="images/inbe.png" alt="Inbe Logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>InBe</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(An advanced personalized professional development platform)</i></p>
-								<h3>JAN 2023 - MAY 2023</h3>
-								<h4>Software Engineer Intern</h4>
-								<ul>
-									<li>
-										Developed InBe’s flagship product by integrating <strong style="font-weight: 400; color: #d6d6d6">Transformer LLM</strong> fine-tuning, prompt engineering, and <strong style="font-weight: 400; color: #d6d6d6">PosgreSQL</strong> design together, creating a robust <strong style="font-weight: 400; color: #d6d6d6">content-indexing</strong> and skill-based recommendation system.
-									</li>
-									<li>
-										Built <strong style="font-weight: 400; color: #d6d6d6">33%</strong> of InBe’s total infrastructure with <strong style="font-weight: 400; color: #d6d6d6">20</strong> scalable <strong style="font-weight: 400; color: #d6d6d6">REST API</strong>routes, proxies, and test cases with <strong style="font-weight: 400; color: #d6d6d6">Flask</strong> and <strong style="font-weight: 400; color: #d6d6d6">SQL</strong> queries, allowing advanced data interactions between users, their skills, and proficiencies.
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="https://www.peer-tutoring.org/" target="_blank" class="image">
-							<img src="images/achillea.png" alt="Athena Advisory Logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>Achillea Peer Tutoring</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(A national peer tutoring nonprofit working with foster care agencies & tutoring nonprofits)</i></p>
-								<h3>JUN 2023 - AUG 2023</h3>
-								<h4>Data Engineer Intern</h4>
-								<ul>
-									<li>
-										Optimized student and teacher information lookup-time by <stron style="font-weight: 400; color: #d6d6d6">73%</stron> via deploying advanced database functionalities onto <strong style="font-weight: 400; color: #d6d6d6">AWS Aurora</strong>,
-										transforming & normalizing manual spreadsheet data seamlessly into <strong style="font-weight: 400; color: #d6d6d6">PostgreSQL</strong> for scalability.
-									</li>
-									<li>
-										Improved teacher-student scheduling and reminders <strong style="font-weight: 400; color: #d6d6d6">100%</strong> through <strong style="font-weight: 400; color: #d6d6d6">AppleScript & Twilio</strong>
-										automation messaging systems, eliminating manual intervention and human inconsistencies & errors.
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="https://www.ifuvi.com/exploring" target="_blank" class="image">
-							<img src="images/fuvi.png" alt="FUVi logo" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>FUVi</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(A neuroscience-based active learning platform)</i></p>
-								<h3>SEP 2022 - DEC 2022</h3>
-								<h4>Software Engineer Intern</h4>
-								<ul>
-									<li>
-										Spearheaded website and platform front-end development and reduced screen load-time by <strong style="font-weight: 400; color: #d6d6d6">12%</strong> through a reliable, screen-responsive, and intuitive user experience.
-									</li>
-									<li> 
-										Aligned <strong style="font-weight: 400; color: #d6d6d6">ExpressJS</strong> and <strong style="font-weight: 400; color: #d6d6d6">Java</strong> backend processes for low-latency data access and efficient web operations by collaborating closely with cross-functional teams, increasing site health by <strong style="font-weight: 400; color: #d6d6d6">13%</strong> with persistent object caching using <strong style="font-weight: 400; color: #d6d6d6">Redis</strong>.
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-					<section class="rectangle">
-						<a href="#" target="_blank" class="image">
-							<img src="images/tutor.png" alt="Tutor Img" data-position="center center" style="display: none;">
-						</a>
-						<div class="content">
-							<div class="inner">
-								<h2>SAT & General Tutoring by Long</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(A tutoring curriculum for underprivelaged students)</i></p>
-								<h3>SEP 2021 - DEC 2022</h3>
-								<h4>Founder & Lead Educator</h4>
-								<ul style="margin-top: 6%">
-									<li>Founded & directed a year-long SAT Math course for Vietnamese students (virtual) and peers (in-person).</li>
-									<li>Increased SAT scores by an average of <strong style="font-weight: 400; color: #d6d6d6">180 points</strong> for 18 high-school attendees, with <strong style="font-weight: 400; color: #d6d6d6">10 students</strong> recieving acceptances to their first-choice colleges.</li>
-									<li>Boosted academic performance of <strong style="font-weight: 400; color: #d6d6d6">20 students</strong>, Grades 5-11, with a <strong style="font-weight: 400; color: #d6d6d6">21%</strong>  average increase in test scores.</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-				</section>
+    .icon {
+      font-size: 5rem;
+      display: block;
+      margin: 1rem 0;
+    }
 
-				<!-- Projects -->
-				<section id="projects" class="wrapper style2 spotlights" style="background-color: #090909;">
-					<section class="rectangle">
-						<div class="content" id="tamid">
-							<div class="inner">
-								<h2>TAMID Group</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(tech consultant organization for Israeli startups)</i></p>
-								<h3>FEB 2023 - PRESENT</h3>
-								<h4>Technical Team Lead</h4>
-								<ul>
-									<li>
-										Mentored <strong style="font-weight: 400; color: #d6d6d6">40</strong> student SWE in completing semester-long tech consulting projects for Israeli tech startups, consistently achieving
-										<stron style="font-weight: 400; color: #d6d6d6"></strong>perfect evaluations</stron> from previous clients, and outperforming expectations with high-quality deliverables.
-									</li>
-									<li>
-										Spearheaded client-project matching, project scoping, client expectation negotiations, <strong style="font-weight: 400; color: #d6d6d6">AGILE</strong> practices, and tech-membership interviews.
+    .page-title {
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: #f0f0f0;
+    }
 
-									</li>
-									<li>
-										Ensured quality of <strong style="font-weight: 400; color: #d6d6d6">>1000</strong> commits through code reviews pushed to production; coordinated weekly presentations to clients.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://tamidgroup.org/" target="_blank" class="image">
-							<img src="images/tamid.png" alt="Brandeis logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-					<section class="rectangle">
-						<div class="content" id="tamid">
-							<div class="inner">
-								<h2>Random Forest</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(ML group at Brandeis University)</i></p>
-								<h3>FEB 2023 - PRESENT</h3>
-								<h4>Lead AI/ML Engineer</h4>
-								<ul>
-									<li>
-										Enhanced prior <strong style="font-weight: 400; color: #d6d6d6">Molecular Toxicity</strong> detection by <strong style="font-weight: 400; color: #d6d6d6">21%</strong> with an <strong style="font-weight: 400; color: #d6d6d6">80.01%</strong> ROC-AUC score in <strong style="font-weight: 400; color: #d6d6d6">48 hours</strong>. Integrated RDKit & MolVS data,
-										optimized Morgan fingerprints, and utilized GATConv, Batch Normalization, and Linear layers to address overfitting.
-									</li>
-									<li>
-										Reduced SMILES data imbalance from <strong style="font-weight: 400; color: #d6d6d6">95% to 0%</strong> with <strong style="font-weight: 400; color: #d6d6d6">custom loss functions</strong>lations by oversampling
-										underrepresented labels, significantly increasing model accuracy to allow generalizing across 12 molecular properties.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://www.brandeis.edu/" target="_blank" class="image">
-							<img src="images/deis.png" alt="Brandeis logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-					<section class="rectangle">
-						<div class="content">
-							<div class="inner">
-								<h2>Soular</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(a context-based emotional recognition & mental illness detection journaling and self-betterment app)</i></p>
-								<h3>OCT 2023 - PRESENT</h3>
-								<h4>Machine Learning Engineer</h4>
-								<ul>
-									<li>
-										Spearheaded the development of theSoular iOS/Android app to analyze journaling with <strong style="font-weight: 400; color: #d6d6d6">emotion analysis</strong> and <strong style="font-weight: 400; color: #d6d6d6">custom consultations</strong> with <strong style="font-weight: 400; color: #d6d6d6">Transformer models</strong>,
-										graph-data visualization, prompt engineering, & <strong style="font-weight: 400; color: #d6d6d6">React-Native</strong> with an error margin of <strong style="font-weight: 400; color: #d6d6d6">< 5%</strong> from <strong style="font-weight: 400; color: #d6d6d6">A/B testing</strong> & careful fine-tuning.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://github.com/nguyenv119/hackharvard2023" target="_blank" class="image">
-							<img src="images/Soular.png" alt="Soular Logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-					<section class="rectangle">
-						<div class="content">
-							<div class="inner">
-								<h2>DSAV</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(visualization for DSA with real-time, side-by-side animations and code explanation)</i></p>
-								<h3>JUL 2023 - PRESENT</h3>
-								<h4>Tech Lead</h4>
-								<ul>
-									<li>
-										Led <strong style="font-weight: 400; color: #d6d6d6">15 SWE</strong> to develop a <strong style="font-weight: 400; color: #d6d6d6">React</strong> visualization tool for <strong style="font-weight: 400; color: #d6d6d6">Data Structures & Algorithms</strong>, using <strong style="font-weight: 400; color: #d6d6d6">AGILE</strong> methods. 
-									</li>
-									<li>
-										Orchestrated <strong style="font-weight: 400; color: #d6d6d6">project scoping</strong> and tech-stack tutorials, timeline, <strong style="font-weight: 400; color: #d6d6d6">Figma</strong> designs, and rigorously ensured code quality by reviewing over <strong style="font-weight: 400; color: #d6d6d6">250 commits</strong>, emphasizing team collaboration, feedback, and mentorship.
-									</li>
-									<li>
-										Attained <strong style="font-weight: 400; color: #d6d6d6">professors’ endorsements</strong> for integration into Data Structures & Algorithms courses, benefiting over <strong style="font-weight: 400; color: #d6d6d6">1,000</strong> students in mastering fundamental programming concepts.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://nguyenv119.github.io/DSAV/" target="_blank" class="image">
-							<img src="images/dsav.png" alt="DSAV Logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-					<section class="rectangle">
-						<div class="content">
-							<div class="inner">
-								<h2>TreeHouse</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(a safe, anonymous forum-space to tackle imposter syndrome)</i></p>
-								<h3>OCT 2023 - PRESENT</h3>
-								<h4>Project Lead</h4>
-								<ul>
-									<li>
-										Secured <strong style="font-weight: 400; color: #d6d6d6">'SASEHack Favorite'</strong> with TreeHouse to tackle imposter syndrome in <strong style="font-weight: 400; color: #d6d6d6">< 6 hours</strong>, building an anonymous forum with
-										<strong style="font-weight: 400; color: #d6d6d6">context-based AI</strong> consultations & harmful message filtering with <strong style="font-weight: 400; color: #d6d6d6">100%</strong> success through <strong style="font-weight: 400; color: #d6d6d6">Flask</strong> APIs, LLM training, and React TS in <strong style="font-weight: 400; color: #d6d6d6">< 6 hours</strong>.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://github.com/nguyenv119/treehouse" target="_blank" class="image">
-							<img src="images/treehouse.png" alt="TreeHouse Logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-					<section class="rectangle">
-						<div class="content">
-							<div class="inner">
-								<h2>Quant</h2>
-								<p style="margin-top: -15px; margin-bottom: 15px;"><i>(education, research club focusing on quantitative thinking)</i></p>
-								<h3>SEP 2022 - JAN 2024</h3>
-								<h4>Executive Director & Full-Stack Engineer</h4>
-								<ul>
-									<li>
-										Procured and managed club financial allocation for hackathons and large-scale applications in <strong style="font-weight: 400; color: #d6d6d6">quantitative finance</strong>, academia, and sports analytics, overseeing <strong style="font-weight: 400; color: #d6d6d6">2 tech leads</strong> and <strong style="font-weight: 400; color: #d6d6d6">40 members</strong> to project completion.
-									</li>
-									<li>
-										Built a <strong style="font-weight: 400; color: #d6d6d6">SvelteKit Firebase</strong> real-time portfolio analysis full-stack framework to provide valuable monitoring and insights into various financial market fluctuations.
-									</li>
-								</ul>
-							</div>
-						</div>
-						<a href="https://brandeisquantclub.org/" target="_blank" class="image">
-							<img src="images/QuantClub.png" alt="Quant Club Logo" data-position="center center" style="display: none;">
-						</a>
-					</section>
-				</section>
+    /* -------- Typography -------- */
+    h1, h2, h3 {
+      font-weight: 500;
+      color: #f0f0f0;
+    }
 
-				<!-- Three : contact info-->
-					<section id="contact" class="wrapper style1 fade-up">
-						<div class="inner" style="padding-bottom: 0px;">
-								<div id="contact">
-									<div class="container">
-										<div class="row">
-											<div class="contact-left">
-												<h1 class="sub-title">Contact Me</h1>
-												<ul class="contact">
-													<li>
-														<h3>Email</h3>
-														<a href="mailto:nguyenv@brandeis.edu">nguyenv@brandeis.edu</a>
-													</li>
-													<li>
-														<h3>Phone</h3>
-														<span>(774) 707-1015</span>
-													</li>
-													<li>
-														<h3>Socials</h3>
-														<ul class="icons">
-															<li><a target="_blank" href="https://github.com/nguyenv119" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-															<li><a target="_blank" href="https://www.linkedin.com/in/nguyen119/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-														</ul>
-													</li>
-													<li>
-														<h3>Address</h3>
-														<span>415 South Street<br />
-														Waltham, MA 02453</span>
-													</li>
-												</ul>
-												<br>
-											</div>
-											<!-- <div class="contact-right" style="margin-top: 7.7%;">
-												<form name="submit-to-google-sheet">
-													<input type="text" name="Name" placeholder="Your Name" required>
-													<input type="email" name="Email" placeholder="Your Email" required>
-													<textarea name="Message" style="resize: none;"rows="6" placeholder="Your Message"></textarea>
-													<button type="submit" class="btn btn2">Submit</button> 
-												</form>
-												<span id="msg"></span>
-											</div> -->
-										</div>
-									</div>
-								</div>
-						</div>
-					<!-- Footer -->
-						<footer id="footer" class="wrapper style1-alt">
-							<div class="inner" style="padding-bottom: 0">
-								<ul class="menu">
-									<li>&copy; Long Nguyen All Rights Reserved.</li>
-								</ul>
-							</div>
-						</footer>
-					</section>	
-			</div>
+    p {
+      margin: 0.5rem 0 1rem;
+      color: #d4d4d4;
+    }
 
-		<!-- Scripts -->
-			<!-- Contact Scripts -->
-				<script>
-					var tablinks = document.getElementsByClassName("tab-links");
-					var tabcontents = document.getElementsByClassName("tab-contents");
-					function opentab(tabname) {
-						for (tablink of tablinks) {
-							tablink.classList.remove("active-link");
-						}
-						for (tabcontent of tabcontents) {
-							tabcontent.classList.remove("active-tab");
-						}
-						event.currentTarget.classList.add("active-link");
-						document.getElementById(tabname).classList.add("active-tab");
-					}
-				</script>						
-				<!-- <script>
-					const scriptURL = 'https://script.google.com/macros/s/AKfycbwBtZwIY4O7Vy_ckJs4sgnjTqu1C4gIj3BPmw-lFhwV9sqdtj3Wc1RVBGCq1-x8qh7nuQ/exec'
-					const form = document.forms['submit-to-google-sheet']
-					const msg = document.getElementById("msg")
-					
-					form.addEventListener('submit', e => {
-					e.preventDefault()
-					fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-						.then(response => {
-							msg.innerHTML = "Message Sent Successfully"
-							setTimeout(function(){
-								msg.innerHTML = ""
-							},5000)
-				
-							form.reset()
-						})
-					.catch(error => console.error('Error!', error.message))
-					})
-				</script> -->
-			<!-- Script for profile image -->
-				<script>
-					document.addEventListener('DOMContentLoaded', function () {
-					var maxWidth = window.screen.width * 0.847;
-					var style = document.createElement('style');
-					style.innerHTML = `
-						@media only screen and (max-width: ${maxWidth}px) {
-							.profile-picture img {
-								display: none;
-							}
-						}
-					`;
-					document.head.appendChild(style);
-				});
-				</script>
-			<!-- Script for download btns -->
-				<script>
-					document.addEventListener('DOMContentLoaded', function () {
-					var maxWidth = window.screen.width * 0.376;
-					var style = document.createElement('style');
-					style.innerHTML = `
-						@media only screen and (max-width: ${maxWidth}px) {
-							.fa-download {
-								font-size: 1.5vw;
-							}
-						}
-					`;
-					document.head.appendChild(style);
-				});
-				</script>
+    /* -------- Links -------- */
+    a {
+      color: #8ab4ff;
+      text-decoration: none;
+      border-bottom: 1px solid #8ab4ff33;
+      transition: border-bottom-color 0.15s ease;
+    }
 
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-			</script>
+    a:hover {
+      border-bottom-color: #8ab4ff;
+    }
+
+    /* -------- Link List -------- */
+    .links {
+      margin: 1rem 0 2rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .links li {
+      margin: 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
+    /* -------- Blockquote -------- */
+    blockquote {
+      border-left: 3px solid rgba(255, 255, 255, 0.25);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      color: #b4b4b4;
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.15rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    /* -------- Footer -------- */
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 2rem 0 0;
+      color: #999;
+      opacity: 0.75;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- Hero Header -->
+    <img class="page-cover-image" src="images/bg3.png" alt="cover image" style="object-position: center 50%;">
+    <header>
+      <span class="icon">👋</span>
+    </header>
+
+    <!-- Main Content -->
+    <h2>I’m Long, like the adjective</h2>
+    <p><i>Have a drink (🥤🍷🍵) — I hope you enjoy your stay!</i></p>
+
+    <h2>🔗s</h2>
+    <ul class="links">
+      <li>✍️ <a href="https://www.notion.so/Engineering-Blog-2bb250e457388054a468e7f04e8409b8?pvs=21">Engineering Blog</a></li>
+      <li>💻 <a href="https://github.com/nguyenv119">GitHub</a></li>
+      <li>📸 <a href="https://www.instagram.com/vlong_codes/">Instagram</a></li>
+      <li>🤝 <a href="https://www.linkedin.com/in/nguyenv119/">LinkedIn</a></li>
+      <li>💜 <a href="https://www.linkedin.com/in/nguyenv119/">Love Poetry</a></li>
+    </ul>
+
+    <blockquote>
+      Periodic life update:  
+      <code>thanks Mel Robbins for <a href="https://www.youtube.com/watch?v=P91b4civBxA">this</a></code>
+    </blockquote>
+
+    <!-- Footer -->
+    <footer>
+      🚧 Under construction 🚧
+    </footer>
+
+  </div>
 	</body>
 </html>
