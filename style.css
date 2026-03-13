@@ -221,7 +221,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 
 .aside {
   font-size: clamp(0.6rem, 1vw, 0.68rem); font-weight: 300; font-style: italic;
-  color: var(--cream-22); letter-spacing: 0.04em;
+  color: rgba(240, 235, 224, 0.35); letter-spacing: 0.04em;
   opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards;
 }
 .aside a { color: inherit; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease; }
@@ -244,7 +244,10 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   }
   .links { flex-direction: column; gap: 0.2rem 0; margin-bottom: 2rem; }
   .row-break { display: none !important; }
-  .social-github { margin-top: 0.75rem; }
+  .social-github {
+    margin-top: 1rem; padding-top: 0.8rem;
+    border-top: 1px solid rgba(240, 235, 224, 0.1);
+  }
 }
 
 @media (max-width: 539px) {
