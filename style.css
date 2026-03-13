@@ -21,9 +21,9 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   background: linear-gradient(
     to bottom,
     rgba(6, 5, 9, 0.08)  0%,
-    rgba(6, 5, 9, 0.08)  18%,
-    rgba(6, 5, 9, 0.42)  46%,
-    rgba(6, 5, 9, 0.86)  68%,
+    rgba(6, 5, 9, 0.08)  15%,
+    rgba(6, 5, 9, 0.42)  50%,
+    rgba(6, 5, 9, 0.77)  77%,
     rgba(6, 5, 9, 0.97)  100%
   );
 }
