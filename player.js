@@ -1,13 +1,11 @@
 (function () {
-  // Song library — add entries here when new songs land in mewsics/
   const SONGS = [
-    { src: 'mewsics/byu_charlieputh.mp3',  title: 'Beat Yourself Up — Charlie Puth' },
+    { src: 'mewsics/byu_charlieputh.mp3',  title: 'Beat Yourself Up — Charlie Puth'  },
     { src: 'mewsics/cry_charlieputh.mp3',   title: 'Cry — Charlie Puth'              },
     { src: 'mewsics/endworld_searows.mp3',  title: 'End of the World — Searows'      },
-    { src: 'mewsics/manynights_metro.mp3',  title: 'Many Nights — Metro Boomin'      },
+    { src: 'mewsics/manynights_metro.mp3',  title: 'Too Many Nights — Metro Boomin'  },
   ];
 
-  // Fisher-Yates shuffle — runs once per page load, giving a fixed random order
   function shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -17,7 +15,7 @@
     return a;
   }
 
-  const queue    = shuffle(SONGS.map((_, i) => i)); // shuffled indices, fixed for this session
+  const queue    = shuffle(SONGS.map((_, i) => i));
   let   queuePos = 0;
 
   const audio        = document.getElementById('audio');
@@ -71,7 +69,6 @@
     loadSong(queuePos, true);
   }
 
-  // Smart back: restart current song if past 3s, else jump to previous
   function goPrev() {
     if (audio.currentTime > 3) {
       audio.currentTime = 0;
@@ -81,7 +78,6 @@
     }
   }
 
-  // Load first song in shuffled queue; canplay fires once data is ready
   loadSong(0, false);
   audio.addEventListener('canplay', () => { if (!playing) tryPlay(); }, { once: true });
 
@@ -89,8 +85,7 @@
   wrap.addEventListener('keydown', e => {
     if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); playing ? pause() : tryPlay(); }
   });
-
-  // Circular arrow = restart current track from 0
+  
   replayBtn.addEventListener('click', e => {
     e.stopPropagation();
     audio.currentTime = 0;
