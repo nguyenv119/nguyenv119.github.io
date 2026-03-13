@@ -91,14 +91,41 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 }
 
 @keyframes pulse-icon {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.45; }
+  0%, 100% { opacity: 1;    transform: scale(1);    }
+  50%       { opacity: 0.6; transform: scale(1.06); }
 }
 .play-icon {
-  animation: pulse-icon 2.5s ease-in-out infinite;
+  animation: pulse-icon 2s ease-in-out infinite;
+  transform-box: fill-box; transform-origin: center;
   transition: opacity 0.4s ease;
 }
 .playing .play-icon { opacity: 0; animation: none; }
+
+@keyframes ping-ring {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.9); opacity: 0;   }
+}
+.play-ring circle {
+  transform-box: fill-box; transform-origin: center;
+  animation: ping-ring 2s ease-out infinite;
+}
+.playing .play-ring { display: none; }
+
+#prevBtn, #nextBtn { transition: opacity 0.2s; }
+#prevBtn:hover, #nextBtn:hover { opacity: 0.5; }
+
+@keyframes hint-fade-out {
+  0%, 55% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+.play-hint {
+  font-size: 0.44rem; letter-spacing: 0.28em; font-weight: 300;
+  color: var(--cream-45); text-align: center;
+  margin-top: 5px; margin-bottom: -12px;
+  pointer-events: none; text-transform: lowercase;
+  animation: hint-fade-out 4s ease forwards;
+}
+.play-hint.hidden { display: none; }
 
 @keyframes cassette-glow {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(201, 169, 110, 0.10)); }
