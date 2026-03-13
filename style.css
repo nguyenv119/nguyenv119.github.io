@@ -189,7 +189,6 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   margin-bottom: 2.25rem;
   opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
 }
-.social-github { margin-top: 0.35rem; }
 
 .links a {
   font-size: clamp(0.7rem, 1.2vw, 0.8rem); font-weight: 400;
