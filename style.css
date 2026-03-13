@@ -247,6 +247,13 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   .social-github { margin-top: 0.75rem; }
 }
 
-@media (max-width: 539px) {
-  .links { gap: 0.55rem 1.5rem; }
+@media (max-width: 899px) {
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 1.5rem;
+    row-gap: 0.55rem;
+    justify-content: start;
+  }
+  .row-break { display: none; }
 }
