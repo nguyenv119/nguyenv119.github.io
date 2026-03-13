@@ -134,7 +134,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   margin-bottom: 2.25rem;
   opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
 }
-.social-instagram { margin-top: 0.35rem; }
+.social-github { margin-top: 0.35rem; }
 
 .links a {
   font-size: clamp(0.7rem, 1.2vw, 0.8rem); font-weight: 400;
@@ -153,12 +153,15 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 .links a:hover            { color: var(--cream); }
 .links a:hover::after     { transform: scaleX(1); }
 
+.social-github    a:hover  { color: var(--cream); }
 .social-instagram a:hover  { opacity: 0.78; }
 .social-linkedin  a:hover  { color: #4d9de0; }
+.social-github    a::after { background: var(--cream-70); }
 .social-instagram a::after { background: #dc2743; }
 .social-linkedin  a::after { background: #0a66c2; }
 
 .links a svg { width: 0.9em; height: 0.9em; flex-shrink: 0; }
+.social-github   a svg { width: 0.85em; height: 0.85em; }
 .social-linkedin a svg { margin-top: 0.08em; }
 
 .aside {
@@ -186,7 +189,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   }
   .links { flex-direction: column; gap: 0.2rem 0; margin-bottom: 2rem; }
   .row-break { display: none !important; }
-  .social-instagram { margin-top: 0.75rem; }
+  .social-github { margin-top: 0.75rem; }
 }
 
 @media (max-width: 539px) {
