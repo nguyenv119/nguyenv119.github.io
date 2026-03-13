@@ -150,11 +150,39 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   display: flex; justify-content: space-between; align-items: center;
   margin-top: 7px;
 }
+.track-name-wrap {
+  display: flex; align-items: center; gap: 4px;
+  overflow: hidden; max-width: 148px;
+}
 .track-name, .track-time {
   font-size: 0.52rem; letter-spacing: 0.1em;
   color: var(--cream-22); font-weight: 300;
+  transition: color 0.4s ease;
 }
-.track-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; }
+.track-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.player.playing .track-name { color: var(--cream-45); }
+
+.eq {
+  display: inline-flex; align-items: flex-end; gap: 1.5px;
+  height: 7px; flex-shrink: 0;
+  opacity: 0; transition: opacity 0.5s ease;
+}
+.eq i {
+  display: block; width: 1.5px; height: 100%;
+  background: var(--gold); border-radius: 1px;
+  transform-origin: bottom; transform: scaleY(0.15);
+  animation-play-state: paused;
+}
+@keyframes eq-bar {
+  0%   { transform: scaleY(0.15); }
+  100% { transform: scaleY(1);    }
+}
+.eq i:nth-child(1) { animation: eq-bar 0.65s ease-in-out 0s    infinite alternate; }
+.eq i:nth-child(2) { animation: eq-bar 0.45s ease-in-out 0.1s  infinite alternate; }
+.eq i:nth-child(3) { animation: eq-bar 0.75s ease-in-out 0.22s infinite alternate; }
+.eq i:nth-child(4) { animation: eq-bar 0.55s ease-in-out 0.08s infinite alternate; }
+.player.playing .eq         { opacity: 1; }
+.player.playing .eq i       { animation-play-state: running; }
 
 .links {
   list-style: none; display: flex; flex-wrap: wrap; gap: 0.45rem 2rem;

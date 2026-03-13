@@ -28,6 +28,8 @@
   const trackName    = document.getElementById('trackName');
   const trackTime    = document.getElementById('trackTime');
   const playHint     = document.getElementById('playHint');
+  const sideLabel    = document.getElementById('sideLabel');
+  const player       = document.querySelector('.player');
 
   let playing = false;
 
@@ -39,6 +41,7 @@
   function setState(state) {
     playing = state;
     wrap.classList.toggle('playing', state);
+    if (player) player.classList.toggle('playing', state);
     wrap.setAttribute('aria-label', state ? 'Pause music' : 'Play music');
     if (state && playHint) playHint.classList.add('hidden');
   }
@@ -49,6 +52,7 @@
     trackName.textContent = song.title;
     trackTime.textContent = '';
     progressBar.style.width = '0%';
+    if (sideLabel) sideLabel.textContent = 'SIDE ' + String.fromCharCode(65 + pos);
     if (autoplay) {
       audio.play()
         .then(() => setState(true))
