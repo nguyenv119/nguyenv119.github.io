@@ -1,1 +1,10 @@
 old_images/
+.beads/
+.claude/
+AGENTS.md
+CLAUDE.md
+EXAMPLE.md
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
