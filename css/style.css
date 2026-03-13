@@ -13,7 +13,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 
 .bg {
   position: fixed; inset: 0;
-  background: url("images/bg3.png") center / cover no-repeat;
+  background: url("../images/bg3.png") center / cover no-repeat;
   z-index: 0;
 }
 .bg::after {
@@ -189,7 +189,6 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   margin-bottom: 2.25rem;
   opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
 }
-.social-github { margin-top: 0.35rem; }
 
 .links a {
   font-size: clamp(0.7rem, 1.2vw, 0.8rem); font-weight: 400;
@@ -247,6 +246,13 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   .social-github { margin-top: 0.75rem; }
 }
 
-@media (max-width: 539px) {
-  .links { gap: 0.55rem 1.5rem; }
+@media (max-width: 899px) {
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 1.5rem;
+    row-gap: 0.55rem;
+    justify-content: start;
+  }
+  .row-break { display: none; }
 }
