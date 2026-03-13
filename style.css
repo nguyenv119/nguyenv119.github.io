@@ -189,7 +189,14 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   margin-bottom: 2.25rem;
   opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
 }
-.social-github { margin-top: 0.35rem; }
+.social-row {
+  flex-basis: 100%; /* always its own row in mobile flex-wrap */
+  margin-top: 0.35rem;
+}
+.social-links {
+  list-style: none; display: flex; flex-wrap: nowrap; gap: 1.5rem;
+  align-items: center;
+}
 
 .links a {
   font-size: clamp(0.7rem, 1.2vw, 0.8rem); font-weight: 400;
@@ -244,7 +251,8 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   }
   .links { flex-direction: column; gap: 0.2rem 0; margin-bottom: 2rem; }
   .row-break { display: none !important; }
-  .social-github { margin-top: 0.75rem; }
+  .social-row { flex-basis: auto; margin-top: 0.75rem; }
+  .social-links { flex-direction: column; gap: 0.2rem 0; }
 }
 
 @media (max-width: 539px) {
