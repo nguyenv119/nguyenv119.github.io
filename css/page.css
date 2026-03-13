@@ -1,0 +1,315 @@
+:root {
+  --cream:    #f0ebe0;
+  --cream-70: rgba(240, 235, 224, 0.7);
+  --cream-45: rgba(240, 235, 224, 0.45);
+  --cream-22: rgba(240, 235, 224, 0.22);
+  --gold:     #c9a96e;
+  --ink:      #060509;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body {
+  font-family: 'DM Mono', monospace;
+  color: var(--cream);
+  background: var(--ink);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* ── Background ───────────────────────────────── */
+
+.bg {
+  position: fixed; inset: 0; z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 5, 9, 0.06)  0%,
+    rgba(6, 5, 9, 0.06)  18%,
+    rgba(6, 5, 9, 0.38)  46%,
+    rgba(6, 5, 9, 0.80)  72%,
+    rgba(6, 5, 9, 0.98)  100%
+  );
+}
+
+.grain {
+  position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat; background-size: 256px 256px;
+}
+
+/* ── Animations ───────────────────────────────── */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes draw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Page layout ──────────────────────────────── */
+
+.page {
+  position: relative; z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 6vw, 3rem);
+  padding-top: 36vh;
+  padding-bottom: 8rem;
+}
+
+/* ── Back link ────────────────────────────────── */
+
+.back {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 1.6rem;
+  color: var(--cream-45);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+  opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+}
+.back:hover { color: var(--gold); }
+
+/* ── Page header ──────────────────────────────── */
+
+.page-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+  opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: clamp(2.8rem, 7vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 0.45rem;
+  opacity: 0; animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.page-subtitle {
+  font-size: 0.72rem; font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--cream-45);
+  margin-bottom: 2rem;
+  opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+/* ── Gold divider ─────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 2.5rem;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: draw 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+/* ── Body content ─────────────────────────────── */
+
+.page-body {
+  opacity: 0; animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.page-body p {
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: var(--cream-70);
+  margin-bottom: 1.5rem;
+}
+
+.page-body .muted {
+  color: var(--cream-45);
+  font-style: italic;
+}
+
+/* ── Blockquote ───────────────────────────────── */
+
+.page-body blockquote {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem;
+  margin: 1.8rem 0;
+}
+.page-body blockquote p {
+  font-style: italic;
+}
+
+/* ── Table of contents ────────────────────────── */
+
+.toc-heading {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--cream-45);
+  margin-bottom: 1.2rem;
+}
+
+.toc {
+  list-style: none;
+  counter-reset: toc;
+}
+.toc li {
+  counter-increment: toc;
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+.toc li::before {
+  content: counter(toc) ".";
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 400;
+  padding-top: 0.12em;
+}
+.toc li span,
+.toc li a {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  color: var(--cream-70);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.toc li a:hover { color: var(--cream); }
+
+/* ── Under construction ───────────────────────── */
+
+.wip {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--cream-45);
+  letter-spacing: 0.06em;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Details / Toggle ─────────────────────────── */
+
+details {
+  margin-bottom: 1.5rem;
+}
+details summary {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--cream-70);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  padding: 0.6rem 0;
+  transition: color 0.3s ease;
+  list-style: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸ ";
+  color: var(--gold);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+details[open] summary::before {
+  content: "▾ ";
+}
+details summary:hover { color: var(--cream); }
+
+details .toggle-content {
+  padding: 1.2rem 0 1rem 1.2rem;
+  border-left: 1px solid var(--cream-22);
+}
+details .toggle-content p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--cream-70);
+  margin-bottom: 1rem;
+}
+
+/* ── Poetry ───────────────────────────────────── */
+
+.poem {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(201, 169, 110, 0.25);
+}
+
+.poem-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 1.6rem;
+}
+.poem-heading .poem-date {
+  font-family: 'DM Mono', monospace;
+  font-style: normal;
+  font-size: 0.62rem;
+  color: var(--cream-45);
+  letter-spacing: 0.08em;
+}
+
+.stanza {
+  margin-bottom: 1.6rem;
+}
+.stanza .line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--cream-70);
+}
+
+/* ── Bottom back link ─────────────────────────── */
+
+.back-bottom {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--cream-22);
+  text-decoration: none;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cream-22);
+  transition: color 0.3s ease;
+}
+.back-bottom:hover { color: var(--gold); }
+
+/* ── Light background variant (Spirited Away) ─── */
+
+body.light-bg .bg::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 5, 9, 0.15)  0%,
+    rgba(6, 5, 9, 0.20)  18%,
+    rgba(6, 5, 9, 0.52)  46%,
+    rgba(6, 5, 9, 0.88)  70%,
+    rgba(6, 5, 9, 0.98)  100%
+  );
+}
+
+/* ── Responsive ───────────────────────────────── */
+
+@media (max-width: 600px) {
+  .page {
+    padding-top: 26vh;
+  }
+  .page-icon { font-size: 2.2rem; }
+  .back { font-size: 1.3rem; margin-bottom: 2rem; }
+}

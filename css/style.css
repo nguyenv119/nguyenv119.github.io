@@ -13,7 +13,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 
 .bg {
   position: fixed; inset: 0;
-  background: url("images/bg3.png") center / cover no-repeat;
+  background: url("../images/bg3.png") center / cover no-repeat;
   z-index: 0;
 }
 .bg::after {
