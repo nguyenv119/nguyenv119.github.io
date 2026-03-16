@@ -37,6 +37,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 .stage {
   position: relative; z-index: 2;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(2.75rem, 5vh, 4.5rem);
 }
@@ -253,6 +254,9 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
     column-gap: 1.5rem;
     row-gap: 0.55rem;
     justify-content: start;
+    margin-bottom: 1rem;
   }
   .row-break { display: none; }
+  .player { margin-bottom: 1.25rem; }
+  .aside { font-size: 0.6rem; }
 }
