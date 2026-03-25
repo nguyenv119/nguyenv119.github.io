@@ -2,34 +2,32 @@
   var CONTENT = document.getElementById('content');
   var BG = document.querySelector('.bg');
 
-  // Paths that are internal pages (relative from root)
-  function isInternalPath(path) {
-    return /^(\/?(pages\/[^/]+\.html|index\.html)?)$/.test(path) ||
-           path === '/' || path === '';
+  // Derive base path from where index.html lives
+  // e.g. "/nguyenv119-spa-persistent-music/" or "/"
+  var BASE = location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') + '/';
+
+  function isHomePath(path) {
+    return path === BASE || path === BASE + 'index.html';
   }
 
-  // Normalize href to a path relative to site root
+  function isInternalPath(path) {
+    if (isHomePath(path)) return true;
+    // Match BASE + pages/something.html
+    return path.indexOf(BASE + 'pages/') === 0 && path.endsWith('.html');
+  }
+
+  // Resolve href relative to the current page, return absolute pathname
   function normalizePath(href) {
     try {
-      var url = new URL(href, location.origin);
+      var url = new URL(href, location.href);
       if (url.origin !== location.origin) return null;
-      var p = url.pathname;
-      // ../index.html -> /index.html
-      // pages/X.html -> /pages/X.html
-      // Ensure leading slash
-      if (!p.startsWith('/')) p = '/' + p;
-      return p;
+      return url.pathname;
     } catch (_) {
       return null;
     }
   }
 
-  function isHomePath(path) {
-    return path === '/' || path === '/index.html';
-  }
-
   function navigate(path, pushState) {
-    // Fetch the target page
     fetch(path)
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
@@ -48,20 +46,23 @@
           newContent = page ? page.outerHTML : '';
         }
 
-        // Swap content
         CONTENT.innerHTML = newContent;
 
-        // Update background
-        var fetchedBg = doc.querySelector('.bg');
-        if (fetchedBg) {
-          BG.setAttribute('style', fetchedBg.getAttribute('style') || '');
-        } else {
-          BG.removeAttribute('style');
-        }
-
-        // For homepage, the bg image is set via CSS (no inline style)
+        // Update background — resolve relative image URLs against the fetched page's path
         if (isHomePath(path)) {
           BG.removeAttribute('style');
+        } else {
+          var fetchedBg = doc.querySelector('.bg');
+          var rawStyle = fetchedBg ? fetchedBg.getAttribute('style') : '';
+          if (rawStyle) {
+            // Resolve ../images/X relative to the fetched page, not the current document
+            var fixed = rawStyle.replace(/url\(['"]?(.*?)['"]?\)/g, function (_, url) {
+              return 'url(' + new URL(url, location.origin + path).pathname + ')';
+            });
+            BG.setAttribute('style', fixed);
+          } else {
+            BG.removeAttribute('style');
+          }
         }
 
         // Toggle light-bg class
@@ -78,12 +79,10 @@
           document.title = fetchedTitle.textContent;
         }
 
-        // Push history state
         if (pushState) {
           history.pushState({ path: path }, '', path);
         }
 
-        // Scroll to top
         window.scrollTo(0, 0);
 
         // Re-bind player UI if returning to homepage
@@ -92,7 +91,6 @@
         }
       })
       .catch(function (err) {
-        // Fallback: do a normal navigation
         console.error('SPA navigation failed:', err);
         location.href = path;
       });
@@ -100,21 +98,17 @@
 
   // Event delegation: intercept clicks on internal links
   document.addEventListener('click', function (e) {
-    // Walk up from target to find anchor
     var link = e.target.closest('a');
     if (!link) return;
 
-    // Skip if modifier keys held (user wants new tab)
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
-
-    // Skip links with target="_blank"
     if (link.target === '_blank') return;
 
     var href = link.getAttribute('href');
     if (!href) return;
 
     var path = normalizePath(href);
-    if (!path) return; // external or invalid
+    if (!path) return;
     if (!isInternalPath(path)) return;
 
     e.preventDefault();
