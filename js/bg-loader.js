@@ -70,35 +70,37 @@
     // Remove loaded class
     bgElement.classList.remove('loaded');
 
-    // Set placeholder via CSS variable (must use absolute URL to avoid CSS file path resolution)
-    if (placeholderUrl) {
-      var absolutePlaceholder = new URL(placeholderUrl, window.location.href).href;
-      bgElement.style.setProperty('--placeholder-url', 'url(' + absolutePlaceholder + ')');
-    } else {
-      bgElement.style.removeProperty('--placeholder-url');
-    }
+    // Convert to absolute URLs
+    var absolutePlaceholder = placeholderUrl ? new URL(placeholderUrl, window.location.href).href : null;
+    var absoluteFullImage = fullImageUrl ? new URL(fullImageUrl, window.location.href).href : null;
 
-    // Set full image on main element (also use absolute URL for consistency)
-    if (fullImageUrl) {
-      var absoluteFullImage = new URL(fullImageUrl, window.location.href).href;
+    // CRITICAL: Set placeholder as the MAIN background-image first (loads immediately)
+    if (absolutePlaceholder) {
+      bgElement.style.backgroundImage = 'url(' + absolutePlaceholder + ')';
+    } else if (absoluteFullImage) {
+      // No placeholder, set full image directly
       bgElement.style.backgroundImage = 'url(' + absoluteFullImage + ')';
     }
 
-    // Preload full image
-    if (fullImageUrl) {
-      currentLoadAbort = preloadImage(fullImageUrl, function(success) {
+    // Preload full image in background, then swap when ready
+    if (absoluteFullImage && absolutePlaceholder) {
+      currentLoadAbort = preloadImage(absoluteFullImage, function(success) {
         currentLoadAbort = null;
-        // Add loaded class regardless of success (timeout still removes placeholder)
+
+        // Swap to full image
+        bgElement.style.backgroundImage = 'url(' + absoluteFullImage + ')';
+
+        // Add loaded class for any additional CSS transitions
         bgElement.classList.add('loaded');
 
         if (success) {
-          console.log('Background loaded:', fullImageUrl);
+          console.log('Background loaded:', absoluteFullImage);
         } else {
-          console.log('Background load timeout/error:', fullImageUrl);
+          console.log('Background load timeout/error:', absoluteFullImage);
         }
       });
     } else {
-      // No full image, just mark as loaded
+      // No preloading needed, just mark as loaded
       bgElement.classList.add('loaded');
     }
   }
