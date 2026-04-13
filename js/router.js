@@ -51,39 +51,17 @@
         // Update background — resolve relative image URLs against the fetched page's path
         if (isHomePath(path)) {
           BG.removeAttribute('style');
-          BG.removeAttribute('data-bg');
-          BG.classList.remove('loaded');
         } else {
           var fetchedBg = doc.querySelector('.bg');
           var rawStyle = fetchedBg ? fetchedBg.getAttribute('style') : '';
-          var dataBg = fetchedBg ? fetchedBg.getAttribute('data-bg') : '';
-
-          // Reset loaded state for new background
-          BG.classList.remove('loaded');
-
           if (rawStyle) {
             // Resolve ../images/X relative to the fetched page, not the current document
             var fixed = rawStyle.replace(/url\(['"]?(.*?)['"]?\)/g, function (_, url) {
               return 'url(' + new URL(url, location.origin + path).pathname + ')';
             });
             BG.setAttribute('style', fixed);
-
-            // Copy data-bg attribute and resolve its URL
-            if (dataBg) {
-              var fullBgUrl = new URL(dataBg, location.origin + path).pathname;
-              BG.setAttribute('data-bg', fullBgUrl);
-
-              // Trigger progressive image loading
-              var img = new Image();
-              img.onload = function() {
-                BG.style.backgroundImage = 'url(' + fullBgUrl + ')';
-                BG.classList.add('loaded');
-              };
-              img.src = fullBgUrl;
-            }
           } else {
             BG.removeAttribute('style');
-            BG.removeAttribute('data-bg');
           }
         }
 
