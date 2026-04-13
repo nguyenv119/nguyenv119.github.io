@@ -48,14 +48,37 @@
 
         CONTENT.innerHTML = newContent;
 
-        // Update background — resolve relative image URLs against the fetched page's path
+        // Update background with placeholder support
         if (isHomePath(path)) {
-          BG.removeAttribute('style');
+          var homePlaceholder = 'images/bg3-placeholder.webp';
+          var homeFullImage = 'images/bg3.png';
+          if (window.__setBackground) {
+            window.__setBackground(BG, homeFullImage, homePlaceholder);
+          } else {
+            BG.removeAttribute('style');
+          }
         } else {
           var fetchedBg = doc.querySelector('.bg');
+          var placeholderUrl = fetchedBg ? fetchedBg.getAttribute('data-placeholder') : null;
           var rawStyle = fetchedBg ? fetchedBg.getAttribute('style') : '';
-          if (rawStyle) {
-            // Resolve ../images/X relative to the fetched page, not the current document
+
+          // Extract and resolve full image URL
+          var fullImageUrl = null;
+          var match = rawStyle.match(/url\(['"]?(.*?)['"]?\)/);
+          if (match) {
+            fullImageUrl = new URL(match[1], location.origin + path).pathname;
+          }
+
+          // Resolve placeholder URL
+          if (placeholderUrl) {
+            placeholderUrl = new URL(placeholderUrl, location.origin + path).pathname;
+          }
+
+          // Use bg-loader if available, otherwise fallback
+          if (window.__setBackground && (fullImageUrl || placeholderUrl)) {
+            window.__setBackground(BG, fullImageUrl, placeholderUrl);
+          } else if (rawStyle) {
+            // Fallback: direct style application
             var fixed = rawStyle.replace(/url\(['"]?(.*?)['"]?\)/g, function (_, url) {
               return 'url(' + new URL(url, location.origin + path).pathname + ')';
             });

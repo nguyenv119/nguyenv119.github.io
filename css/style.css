@@ -15,9 +15,33 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   position: fixed; inset: 0;
   background: url("../images/bg3.png") center / cover no-repeat;
   z-index: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Placeholder layer */
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--placeholder-url, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+/* Hide placeholder when loaded */
+.bg.loaded::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Gradient overlay - ensure it's above both layers */
 .bg::after {
   content: ""; position: absolute; inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(6, 5, 9, 0.08)  0%,
@@ -38,8 +62,8 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   position: relative; z-index: 2;
   min-height: 100vh;
   min-height: 100svh;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(2.75rem, 5vh, 4.5rem);
+  display: flex; flex-direction: column; justify-content: flex-start;
+  padding: clamp(3rem, 10vh, 6rem) clamp(1.5rem, 6vw, 5rem) clamp(2.75rem, 5vh, 4.5rem);
 }
 .left, .right { display: flex; flex-direction: column; }
 
@@ -230,8 +254,9 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 @media (min-width: 900px) {
   .stage {
     flex-direction: row; align-items: flex-end;
-    justify-content: flex-start;
-    column-gap: clamp(3rem, 6vw, 7rem);
+    justify-content: flex-end;
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    padding-top: 0;
   }
   .left { flex: 0 0 auto; }
   .name { font-size: clamp(7rem, 14vw, 15rem); margin-bottom: 0.18em; }
@@ -239,15 +264,27 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   .player { margin-top: 1rem; margin-bottom: 0; }
   .right {
     flex: 1;
-    border-left: 1px solid rgba(240, 235, 224, 0.1);
-    padding-left: clamp(3rem, 5vw, 6rem);
   }
   .links { flex-direction: column; gap: 0.2rem 0; margin-bottom: 2rem; }
   .row-break { display: none !important; }
   .social-github { margin-top: 0.75rem; }
 }
 
-@media (max-width: 899px) {
+@media (min-width: 600px) and (max-width: 899px) {
+  .player { margin-bottom: 2rem; }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 2rem;
+    row-gap: 0.8rem;
+    justify-content: start;
+    margin-bottom: 1rem;
+  }
+  .row-break { display: none; }
+  .aside { font-size: 0.6rem; }
+}
+
+@media (max-width: 599px) {
   .links {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -257,6 +294,6 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
     margin-bottom: 1rem;
   }
   .row-break { display: none; }
-  .player { margin-bottom: 1.25rem; }
+  .player { margin-bottom: 2.5rem; }
   .aside { font-size: 0.6rem; }
 }
