@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="bg" style="background-image: url('../images/bg2.png')" aria-hidden="true"></div>
+  <div class="bg" style="background-image: url('../images/bg2-placeholder.webp')" data-bg="../images/bg2.webp" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <main class="page">
@@ -47,5 +47,18 @@
       <a href="../index.html" class="back-bottom">← back to home</a>
     </div>
   </main>
+  <script>
+    // Progressive image loading
+    const bg = document.querySelector('.bg');
+    const fullSrc = bg.dataset.bg;
+    if (fullSrc) {
+      const img = new Image();
+      img.onload = () => {
+        bg.style.backgroundImage = `url('${fullSrc}')`;
+        bg.classList.add('loaded');
+      };
+      img.src = fullSrc;
+    }
+  </script>
 </body>
 </html>
