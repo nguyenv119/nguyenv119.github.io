@@ -70,16 +70,18 @@
     // Remove loaded class
     bgElement.classList.remove('loaded');
 
-    // Set placeholder via CSS variable
+    // Set placeholder via CSS variable (must use absolute URL to avoid CSS file path resolution)
     if (placeholderUrl) {
-      bgElement.style.setProperty('--placeholder-url', 'url(' + placeholderUrl + ')');
+      var absolutePlaceholder = new URL(placeholderUrl, window.location.href).href;
+      bgElement.style.setProperty('--placeholder-url', 'url(' + absolutePlaceholder + ')');
     } else {
       bgElement.style.removeProperty('--placeholder-url');
     }
 
-    // Set full image on main element
+    // Set full image on main element (also use absolute URL for consistency)
     if (fullImageUrl) {
-      bgElement.style.backgroundImage = 'url(' + fullImageUrl + ')';
+      var absoluteFullImage = new URL(fullImageUrl, window.location.href).href;
+      bgElement.style.backgroundImage = 'url(' + absoluteFullImage + ')';
     }
 
     // Preload full image
