@@ -253,21 +253,34 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
 
 @media (min-width: 900px) {
   .stage {
-    flex-direction: row; align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-end;
-    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 680px;
     padding-top: 0;
+    padding-bottom: clamp(3.5rem, 6vh, 5rem);
   }
-  .left { flex: 0 0 auto; }
-  .name { font-size: clamp(7rem, 14vw, 15rem); margin-bottom: 0.18em; }
-  .tagline { margin-bottom: 0; }
-  .player { margin-top: 1rem; margin-bottom: 0; }
-  .right {
-    flex: 1;
+  .left { width: 100%; }
+  .right { width: 100%; }
+  .name {
+    font-size: clamp(7rem, 14vw, 11rem);
+    margin-bottom: 0.18em;
   }
-  .links { flex-direction: column; gap: 0.2rem 0; margin-bottom: 2rem; }
+  .tagline { margin-bottom: 0.75rem; }
+  .player {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    row-gap: 0.65rem;
+    justify-content: start;
+    margin-bottom: 1.5rem;
+  }
   .row-break { display: none !important; }
-  .social-github { margin-top: 0.75rem; }
+  .social-github { margin-top: 0; }
 }
 
 @media (min-width: 600px) and (max-width: 899px) {
