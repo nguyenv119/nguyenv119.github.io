@@ -56,6 +56,15 @@
   }
 
   /**
+   * Check if image is already in browser cache (loads synchronously)
+   */
+  function isImageCached(url) {
+    var img = new Image();
+    img.src = url;
+    return img.complete;
+  }
+
+  /**
    * Set background with placeholder and preload full image
    */
   function setBackground(bgElement, fullImageUrl, placeholderUrl) {
@@ -74,7 +83,16 @@
     var absolutePlaceholder = placeholderUrl ? new URL(placeholderUrl, window.location.href).href : null;
     var absoluteFullImage = fullImageUrl ? new URL(fullImageUrl, window.location.href).href : null;
 
-    // CRITICAL: Set placeholder as the MAIN background-image first (loads immediately)
+    // Check if full image is already cached
+    if (absoluteFullImage && isImageCached(absoluteFullImage)) {
+      // Full image in cache - skip placeholder, show immediately
+      bgElement.style.backgroundImage = 'url(' + absoluteFullImage + ')';
+      bgElement.classList.add('loaded');
+      console.log('Background from cache:', absoluteFullImage);
+      return;
+    }
+
+    // Full image not cached - show placeholder first
     if (absolutePlaceholder) {
       bgElement.style.backgroundImage = 'url(' + absolutePlaceholder + ')';
     } else if (absoluteFullImage) {
