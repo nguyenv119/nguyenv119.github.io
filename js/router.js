@@ -50,8 +50,9 @@
 
         // Update background with placeholder support
         if (isHomePath(path)) {
-          var homePlaceholder = 'images/bg3-placeholder.webp';
-          var homeFullImage = 'images/bg3.webp';
+          // Resolve URLs relative to BASE to avoid context-dependent resolution issues
+          var homePlaceholder = new URL('images/bg3-placeholder.webp', location.origin + BASE).pathname;
+          var homeFullImage = new URL('images/bg3.webp', location.origin + BASE).pathname;
           if (window.__setBackground) {
             window.__setBackground(BG, homeFullImage, homePlaceholder);
           } else {
