@@ -51,7 +51,7 @@
         // Update background with placeholder support
         if (isHomePath(path)) {
           var homePlaceholder = 'images/bg3-placeholder.webp';
-          var homeFullImage = 'images/bg3.png';
+          var homeFullImage = 'images/bg3.webp';
           if (window.__setBackground) {
             window.__setBackground(BG, homeFullImage, homePlaceholder);
           } else {
