@@ -49,7 +49,7 @@ body { font-family: 'DM Mono', monospace; color: var(--cream); background: var(-
   position: relative; z-index: 2;
   min-height: 100vh;
   min-height: 100svh;
-  display: flex; flex-direction: column; justify-content: flex-start;
+  display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(3rem, 10vh, 6rem) clamp(1.5rem, 6vw, 5rem) clamp(2.75rem, 5vh, 4.5rem);
 }
 .left, .right { display: flex; flex-direction: column; }
