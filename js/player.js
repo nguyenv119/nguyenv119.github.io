@@ -1,11 +1,12 @@
 (function () {
   var SONGS = [
-    { src: 'mewsics/byu_charlieputh.mp3',  title: 'Beat Yourself Up — Charlie Puth'  },
+    // { src: 'mewsics/byu_charlieputh.mp3',  title: 'Beat Yourself Up — Charlie Puth'  },
+    // { src: 'mewsics/endworld_searows.mp3',  title: 'End of the World — Searows'      },
     { src: 'mewsics/cry_charlieputh.mp3',   title: 'Cry — Charlie Puth'              },
-    { src: 'mewsics/endworld_searows.mp3',  title: 'End of the World — Searows'      },
     { src: 'mewsics/manynights_metro.mp3',  title: 'Too Many Nights — Metro Boomin'  },
     { src: 'mewsics/toxic.mp3',             title: 'Toxic — Playboi Carti'           },
     { src: 'mewsics/apocalypse.mp3',        title: 'Apocalypse — Cigarettes After Sex'},
+    { src: 'mewsics/nopole.mp3',        title: 'No Pole - Don Toliver'},
   ];
 
   function shuffle(arr) {
